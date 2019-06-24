@@ -43,6 +43,7 @@
 
                                 <p:outputLabel value="Email"/>
                                 <p:inputText value="#{clienteBean.cliente.email}"/>
+                                
                             </h:panelGrid>
 
                             <p:commandButton value="Guardar" action="#{clienteBean.guardarcliente()}" update=":data:datatable,:from"/>
