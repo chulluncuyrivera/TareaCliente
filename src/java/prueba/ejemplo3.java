@@ -5,7 +5,8 @@
  */
 package prueba;
 
-import dao.MascotaDao;
+
+import entidades.Cliente;
 import entidades.Mascota;
 import org.hibernate.Session;
 import utilitarios.HibernateUtil;
@@ -22,12 +23,12 @@ public class ejemplo3 {
     public static void main(String[] args) {
         // TODO code application logic here
         Session session = HibernateUtil.getSessionFactory().openSession();
-        MascotaDao mascotadao = new MascotaDao();
-        Mascota mimascota = new Mascota(1, "Juancito", "Fidel cartolin", "chiguagua");
-        mascotadao.actualizarMascota(mimascota);
+      //  Clientedao clientedao = new Clientedao();
+        //Cliente mimas = new Cliente(1, "Juancito", "Fidel cartolin", "chiguagua");
+       // clientedao.guardar(mimas);
 
         session.beginTransaction();
-        session.saveOrUpdate(mimascota);
+      //  session.saveOrUpdate(mimas);
         session.getTransaction().commit();
         session.close();
     }

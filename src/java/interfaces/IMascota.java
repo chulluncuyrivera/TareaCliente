@@ -22,11 +22,7 @@ public interface IMascota {
 
     public abstract boolean actualizarMascota(Mascota mascota);
 
-    public abstract List<Mascota> listarMascotaRaza(String raza);
-
-    public abstract List<Mascota> listarNombreMascota(String nombreMascota);
-
-    public abstract Integer ContadorMascota();
+    public abstract List<Mascota> listarMascota(String raza);
 
     public abstract boolean eliminarMascota(Mascota mascota);
 

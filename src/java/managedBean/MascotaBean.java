@@ -60,7 +60,7 @@ public class MascotaBean implements Serializable {
         return "/index";
     }
 
-    public String actualizarMascota() {
+    public String Mascota() {
         try {
             MascotaDao mascotaDao = new MascotaDao();
             boolean respuesta = mascotaDao.actualizarMascota(mascota);
@@ -76,6 +76,22 @@ public class MascotaBean implements Serializable {
         return "/index";
 
     }
+    public String actualizarMascota() {
+        try {
+            MascotaDao mascotaDao = new MascotaDao();
+            boolean respuesta = mascotaDao.actualizarMascota(mascota);
+            if (respuesta){
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Se actualizo correctamente"));
+            } else {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("No se pudo actualizar"));
+            }
+        } catch (HibernateException e) {
+            ///transation.rollback();  -- regresa a la anterior
+            System.out.println("Error::: " + e);
+        }
+        return "/index";
+
+    }
 
     public ArrayList<Mascota> listarMascotas() {
         ArrayList<Mascota> lista = new ArrayList<>();
@@ -83,6 +99,7 @@ public class MascotaBean implements Serializable {
         lista = mascotaDao.listarMascotas();
         return lista;
     }
+    
 
     public String eliminar() {
         MascotaDao mascotaDao = new MascotaDao();
